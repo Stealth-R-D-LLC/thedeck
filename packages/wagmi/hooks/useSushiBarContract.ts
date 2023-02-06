@@ -168,7 +168,8 @@ const BAR_ABI = [
 ] as const
 
 export const getSushiBarContractConfig = (chainId: number | undefined) => ({
-  address: XSUSHI_ADDRESS[ChainId.ETHEREUM],
+  // @ts-expect-error Typescript treachery
+  address: XSUSHI_ADDRESS?.[chainId] || XSUSHI_ADDRESS[ChainId.ETHEREUM],
   abi: BAR_ABI,
 })
 

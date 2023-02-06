@@ -1,33 +1,33 @@
-import { XIcon } from '@heroicons/react/outline'
-import { CheckIcon } from '@heroicons/react/solid'
-import { classNames, Network, Select, Switch, Typography } from '@sushiswap/ui'
+/* import { XIcon } from '@heroicons/react/outline'
+import { CheckIcon } from '@heroicons/react/solid' */
+import { classNames /* Network, Select, Switch, Typography */ } from '@sushiswap/ui'
 import { FC } from 'react'
 
-import { SUPPORTED_CHAIN_IDS } from '../../../../config'
+/* import { SUPPORTED_CHAIN_IDS } from '../../../../config'
 import { AVAILABLE_POOL_TYPE_MAP } from '../../../../lib/constants'
-import { usePoolFilters } from '../../../PoolsFiltersProvider'
+import { usePoolFilters } from '../../../PoolsFiltersProvider' */
 import { TableFiltersSearchToken } from './TableFiltersSearchToken'
 
 export const TableFilters: FC<{ showAllFilters?: boolean }> = ({ showAllFilters = false }) => {
-  const { selectedNetworks, selectedPoolTypes, farmsOnly, ignoreLowTvl, setFilters } = usePoolFilters()
+  /*   const { selectedNetworks, selectedPoolTypes, farmsOnly, ignoreLowTvl, setFilters } = usePoolFilters()
   const poolTypesValue =
     Object.keys(AVAILABLE_POOL_TYPE_MAP).length === selectedPoolTypes.length ? [] : selectedPoolTypes
-
+ */
   return (
     <>
       <div className="flex flex-wrap gap-3 mb-4">
-        <Network.SelectorMenu
+        {/*         <Network.SelectorMenu
           networks={SUPPORTED_CHAIN_IDS}
           selectedNetworks={selectedNetworks}
           onChange={(selectedNetworks) => setFilters({ selectedNetworks })}
-        />
+        /> */}
         <div
           className={classNames(
             showAllFilters ? 'opacity-100' : 'opacity-40 pointer-events-none',
             'transition-opacity ease-in duration-150 flex gap-3 flex-wrap'
           )}
         >
-          <Select
+          {/*           <Select
             value={poolTypesValue}
             onChange={(values: string[]) =>
               setFilters({
@@ -73,7 +73,7 @@ export const TableFilters: FC<{ showAllFilters?: boolean }> = ({ showAllFilters 
                 </Select.Option>
               ))}
             </Select.Options>
-          </Select>
+          </Select> */}
 
           {/* <div className="flex items-center bg-slate-700 rounded-xl gap-3 px-3 h-[44px]">
             <Typography variant="sm" weight={600} className="text-slate-200">
@@ -88,7 +88,7 @@ export const TableFilters: FC<{ showAllFilters?: boolean }> = ({ showAllFilters 
             />
           </div> */}
 
-          <div className="flex items-center bg-slate-700 rounded-xl gap-3 px-3 h-[44px]">
+          {/*           <div className="flex items-center bg-slate-700 rounded-xl gap-3 px-3 h-[44px]">
             <Typography variant="sm" weight={600} className="text-slate-200">
               Farms
             </Typography>
@@ -99,7 +99,7 @@ export const TableFilters: FC<{ showAllFilters?: boolean }> = ({ showAllFilters 
               uncheckedIcon={<XIcon />}
               checkedIcon={<CheckIcon />}
             />
-          </div>
+          </div> */}
           <TableFiltersSearchToken />
         </div>
       </div>

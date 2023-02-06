@@ -98,7 +98,8 @@
         "SWAP_URL",
         "XSWAP_URL",
         "DATABASE_URL",
-        "REDIS_URL"
+        "REDIS_URL",
+        "NEXT_PUBLIC_EARN_URL"
       ]
     },
     "clean": {

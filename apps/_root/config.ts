@@ -1,8 +1,9 @@
 import { ChainId } from '@sushiswap/chain'
 
 export const SUPPORTED_CHAIN_IDS = [
-  ChainId.ETHEREUM,
-  ChainId.ARBITRUM,
+  ChainId.GÖRLI,
+  // ChainId.ETHEREUM,
+  /*   ChainId.ARBITRUM,
   ChainId.AVALANCHE,
   ChainId.POLYGON,
   ChainId.FANTOM,
@@ -17,5 +18,5 @@ export const SUPPORTED_CHAIN_IDS = [
   ChainId.OKEX,
   ChainId.BOBA,
   ChainId.BOBA_AVAX,
-  ChainId.HARMONY,
+  ChainId.HARMONY, */
 ]

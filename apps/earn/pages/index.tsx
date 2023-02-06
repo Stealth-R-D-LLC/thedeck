@@ -1,5 +1,5 @@
 import { PlusIcon } from '@heroicons/react/solid'
-import { Button, Link, OnsenIcon, Typography } from '@sushiswap/ui'
+import { Button, Typography } from '@sushiswap/ui'
 import { SUPPORTED_CHAIN_IDS } from '../config'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { FC, useMemo } from 'react'
@@ -65,7 +65,7 @@ const _Pools = ({ selectedNetworks }: { selectedNetworks: typeof SUPPORTED_CHAIN
             <Typography variant="hero" weight={600} className="text-slate-50">
               Earn
             </Typography>
-            <p className="text-slate-300">Earn fees by providing liquidity and staking SUSHI into xSUSHI.</p>
+            <p className="text-slate-300">Earn fees by providing liquidity and staking TEMPORARY into xTEMPORARY.</p>
           </div>
           <div className="flex justify-end flex-grow not-prose">
             <div className="flex flex-col gap-3 w-full lg:w-[200px]">
@@ -74,11 +74,11 @@ const _Pools = ({ selectedNetworks }: { selectedNetworks: typeof SUPPORTED_CHAIN
                 New Position
               </Button>
               {/* </Link.Internal> */}
-              <Link.External href="https://rbieu62gj0f.typeform.com/to/KkrPkOFe">
+              {/*               <Link.External href="https://rbieu62gj0f.typeform.com/to/KkrPkOFe">
                 <Button fullWidth color="gray" startIcon={<OnsenIcon width={16} height={16} />}>
                   Join Onsen
                 </Button>
-              </Link.External>
+              </Link.External> */}
             </div>
           </div>
         </section>

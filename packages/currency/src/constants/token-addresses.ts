@@ -227,6 +227,7 @@ export const SUSHI_ADDRESS = {
 
 export const XSUSHI_ADDRESS = {
   [ChainId.ETHEREUM]: '0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272',
+  [ChainId.GÖRLI]: '0x1be211D8DA40BC0ae8719c6663307Bfc987b1d6c',
 } as const
 
 export const USDC_ADDRESS = {

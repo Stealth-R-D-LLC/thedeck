@@ -1,9 +1,9 @@
-import { CreditCardIcon, DuplicateIcon, ExternalLinkIcon, LogoutIcon } from '@heroicons/react/outline'
+import { DuplicateIcon, ExternalLinkIcon, LogoutIcon } from '@heroicons/react/outline'
 import { ChevronRightIcon } from '@heroicons/react/solid'
 import chains, { ChainId } from '@sushiswap/chain'
 import { Amount, Native } from '@sushiswap/currency'
 import { shortenAddress } from '@sushiswap/format'
-import { BuyCrypto, CopyHelper, IconButton, JazzIcon, Typography } from '@sushiswap/ui'
+import { CopyHelper, IconButton, JazzIcon, Typography } from '@sushiswap/ui'
 import Image from 'next/legacy/image'
 import React, { Dispatch, FC, SetStateAction, useMemo } from 'react'
 import { useBalance, useDisconnect, useEnsAvatar } from 'wagmi'
@@ -56,13 +56,13 @@ export const Default: FC<DefaultProps> = ({ chainId, address, setView }) => {
             {shortenAddress(address)}
           </Typography>
           <div className="flex gap-3">
-            <BuyCrypto address={address}>
+            {/*             <BuyCrypto address={address}>
               {(buyUrl) => (
                 <IconButton as="a" target="_blank" href={buyUrl} className="p-0.5" description="Buy Crypto">
                   <CreditCardIcon width={18} height={18} />
                 </IconButton>
               )}
-            </BuyCrypto>
+            </BuyCrypto> */}
             <CopyHelper toCopy={address} hideIcon>
               {(isCopied) => (
                 <IconButton className="p-0.5" description={isCopied ? 'Copied!' : 'Copy'}>

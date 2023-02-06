@@ -18,8 +18,10 @@ import { SendTransactionResult } from 'wagmi/actions'
 import { useNotifications } from '../../lib/state/storage'
 import { SushiBarInput } from './SushiBarInput'
 
-const SUSHI_TOKEN = SUSHI[ChainId.ETHEREUM]
-const XSUSHI_TOKEN = XSUSHI[ChainId.ETHEREUM]
+const usedChainId = ChainId?.[process.env.NEXT_PUBLIC_DEFAULT_CHAIN as 'ETHEREUM' | 'GÖRLI']
+
+const SUSHI_TOKEN = SUSHI[usedChainId]
+const XSUSHI_TOKEN = XSUSHI[usedChainId]
 
 export const SushiBarSectionDesktop: FC = () => {
   const { chain } = useNetwork()
@@ -62,7 +64,7 @@ export const SushiBarSectionDesktop: FC = () => {
   const amount = useMemo(() => tryParseAmount(value, stake ? SUSHI_TOKEN : XSUSHI_TOKEN), [stake, value])
 
   const { config } = usePrepareContractWrite({
-    ...getSushiBarContractConfig(ChainId.ETHEREUM),
+    ...getSushiBarContractConfig(usedChainId),
     functionName: stake ? 'enter' : 'leave',
     args: amount ? [BigNumber.from(amount.quotient.toString())] : undefined,
     enabled: !!amount?.quotient,
@@ -75,7 +77,7 @@ export const SushiBarSectionDesktop: FC = () => {
 
   const { data: balances } = useBalances({
     currencies: [SUSHI_TOKEN, XSUSHI_TOKEN],
-    chainId: ChainId.ETHEREUM,
+    chainId: usedChainId,
     account: address,
   })
 
@@ -86,15 +88,15 @@ export const SushiBarSectionDesktop: FC = () => {
   return (
     <section className="hidden md:flex">
       <div className="flex flex-col w-full gap-6">
-        <h4 className="font-semibold text-slate-50">Earn trading fees from all pools on Sushi!</h4>
+        <h4 className="font-semibold text-slate-50">Earn trading fees from all pools on The Deck!</h4>
         <div className="p-5 flex flex-col rounded-2xl bg-white bg-opacity-[0.02]">
           <div className="flex flex-col lg:flex-row">
             <div className="flex flex-col justify-center px-5">
-              <h4 className="mb-1 font-semibold text-slate-50 whitespace-nowrap">Sushi Bar</h4>
+              <h4 className="mb-1 font-semibold text-slate-50 whitespace-nowrap">Stealth</h4>
               <p className="text-sm text-slate-400">APR (1y)</p>
               <p className="flex items-center gap-1 text-transparent bg-gradient-to-r from-red to-yellow bg-clip-text">
                 {formatPercent(stats?.apr12m)}
-                <Link.External href={chains[ChainId.ETHEREUM].getTokenUrl(XSUSHI_TOKEN.address)}>
+                <Link.External href={chains[usedChainId].getTokenUrl(XSUSHI_TOKEN.address)}>
                   <ExternalLinkIcon width={16} height={16} className="text-slate-200 hover:text-blue" />
                 </Link.External>
               </p>
@@ -137,17 +139,17 @@ export const SushiBarSectionDesktop: FC = () => {
                         hideIcon
                         className="whitespace-nowrap w-[213px] min-h-[48px]"
                         amount={amount}
-                        address={getSushiBarContractConfig(ChainId.ETHEREUM).address}
+                        address={getSushiBarContractConfig(usedChainId).address}
                       />
                     </Approve.Components>
                   }
                   render={({ approved }) => {
                     return (
                       <Checker.Connected className="whitespace-nowrap !h-[48px] w-[213px]">
-                        <Checker.Network className="whitespace-nowrap !h-[48px] w-[213px]" chainId={ChainId.ETHEREUM}>
+                        <Checker.Network className="whitespace-nowrap !h-[48px] w-[213px]" chainId={usedChainId}>
                           <Checker.Amounts
                             className="whitespace-nowrap !h-[48px] w-[213px]"
-                            chainId={ChainId.ETHEREUM}
+                            chainId={usedChainId}
                             fundSource={FundSource.WALLET}
                             amounts={[amount]}
                           >

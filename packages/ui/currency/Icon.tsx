@@ -17,6 +17,7 @@ const BLOCKCHAIN: Record<number, string> = {
   [ChainId.BSC]: 'bsc',
   [ChainId.CELO]: 'celo',
   [ChainId.ETHEREUM]: 'ethereum',
+  [ChainId.GÖRLI]: 'ethereum',
   [ChainId.FANTOM]: 'fantom',
   [ChainId.AVALANCHE_TESTNET]: 'fuji',
   [ChainId.FUSE]: 'fuse',
@@ -99,7 +100,6 @@ export interface IconProps extends Omit<ImageProps, 'src'> {
 
 export const Icon: FC<IconProps> = ({ currency, disableLink, ...rest }) => {
   const [error, setError] = useState(false)
-  const [loading, setLoading] = useState(false)
 
   const src = useMemo(() => {
     if (currency.isNative) {
@@ -117,7 +117,7 @@ export const Icon: FC<IconProps> = ({ currency, disableLink, ...rest }) => {
     // https://currency.sushi.com/1/0x...jpg - WETH
     return `https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/network/${
       BLOCKCHAIN[currency.chainId]
-    }/${currency.wrapped.address}.jpg`
+    }/${currency.wrapped.address}.jpg` // We should fork this repo and add Stealth as well as Goerli tokens
   }, [currency])
 
   useEffect(() => {

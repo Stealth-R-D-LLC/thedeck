@@ -1,6 +1,6 @@
 import { PlusIcon } from '@heroicons/react/solid'
 import { ConstantProductPool, Pair, StablePool } from '@sushiswap/amm'
-import { ChainId, chainShortName } from '@sushiswap/chain'
+import { Chain, ChainId, chainShortName } from '@sushiswap/chain'
 import { tryParseAmount, Type } from '@sushiswap/currency'
 import { Pair as PairDTO } from '@sushiswap/graph-client'
 import { FundSource } from '@sushiswap/hooks'
@@ -46,7 +46,7 @@ const LINKS: BreadcrumbLink[] = [
 ]
 
 const Add = () => {
-  const [chainId, setChainId] = useState(ChainId.ETHEREUM)
+  const [chainId, setChainId] = useState(ChainId?.[process.env.NEXT_PUBLIC_DEFAULT_CHAIN as keyof typeof ChainId])
   const [fee, setFee] = useState(2)
   const [poolType, setPoolType] = useState(PoolFinderType.Classic)
 

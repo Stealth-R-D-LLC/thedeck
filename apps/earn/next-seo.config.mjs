@@ -1,29 +1,23 @@
 // @ts-check
 /** @type {import('next-seo').DefaultSeoProps} */
 const config = {
-  titleTemplate: '%s | Sushi',
+  titleTemplate: '%s | Stealth',
   title: 'Earn',
   defaultTitle: 'Earn',
-  description: 'Earn fees by providing liquidity and staking SUSHI into xSUSHI.',
-  //   canonical: 'https://www.sushi.com/pool',
-  //   mobileAlternate: {
-  //     media: '',
-  //     href: '',
-  //   },
-  //   languageAlternates: [{ hrefLang: "en", href: "https://www.sushi.com/pool" }],
+  description: 'Earn fees by providing liquidity and staking TEMPORARY into xTEMPORARY.',
   twitter: {
-    handle: '@sushiswap',
-    site: '@sushiswap',
+    handle: '@StealthSend',
+    site: '@StealthSend',
     cardType: 'summary_large_image',
   },
   openGraph: {
-    url: 'https://www.sushi.com/earn',
+    url: 'https://www.stealth.org/earn',
     type: 'website',
     title: 'Earn',
-    description: 'Earn fees by providing liquidity and staking SUSHI into xSUSHI.',
+    description: 'Earn fees by providing liquidity and staking TEMPORARY into xTEMPORARY.',
     images: [
       {
-        url: 'https://www.sushi.com/earn/og-image.jpg',
+        url: 'https://www.stealth.org/earn/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Earn',
@@ -31,7 +25,7 @@ const config = {
     ],
     // videos: [],
     // locale: 'en_IE',
-    site_name: 'Sushi',
+    site_name: 'Stealth',
   },
 }
 export default config

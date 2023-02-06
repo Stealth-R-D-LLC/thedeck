@@ -1,9 +1,9 @@
 // @ts-check
 /** @type {import('next-seo').DefaultSeoProps} */
 export default {
-  titleTemplate: '%s | Sushi',
-  title: 'Sushi',
-  defaultTitle: 'Sushi',
+  titleTemplate: '%s | Stealth',
+  title: 'Stealth',
+  defaultTitle: 'Stealth',
   description:
     'Swap, earn, stack yields, lend, borrow & leverage, all on one decentralized, community driven platform. Welcome home to DeFi.',
   //   canonical: 'https://www.sushi.com/pool',
@@ -13,26 +13,26 @@ export default {
   //   },
   //   languageAlternates: [{ hrefLang: "en", href: "https://www.sushi.com/pool" }],
   twitter: {
-    handle: '@sushiswap',
-    site: '@sushiswap',
+    handle: '@StealthSend',
+    site: '@StealthSend',
     cardType: 'summary_large_image',
   },
   openGraph: {
-    url: 'https://www.sushi.com',
+    url: 'https://stealth.org/',
     type: 'website',
-    title: 'Sushi',
+    title: 'Stealth',
     description:
       'Swap, earn, stack yields, lend, borrow & leverage, all on one decentralized, community driven platform. Welcome home to DeFi.',
     images: [
       {
-        url: 'https://www.sushi.com/og-image.jpg',
+        url: '-',
         width: 1200,
         height: 630,
-        alt: 'Sushi',
+        alt: 'Stealth',
       },
     ],
     // videos: [],
     // locale: 'en_IE',
-    site_name: 'Sushi',
+    site_name: 'Stealth',
   },
 }

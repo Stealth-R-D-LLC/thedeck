@@ -17,8 +17,10 @@ import { SendTransactionResult } from 'wagmi/actions'
 import { useNotifications } from '../../lib/state/storage'
 import { SushiBarInput } from './SushiBarInput'
 
-const SUSHI_TOKEN = SUSHI[ChainId.ETHEREUM]
-const XSUSHI_TOKEN = XSUSHI[ChainId.ETHEREUM]
+const usedChainId = ChainId?.[process.env.NEXT_PUBLIC_DEFAULT_CHAIN as 'ETHEREUM' | 'GÖRLI']
+
+const SUSHI_TOKEN = SUSHI[usedChainId]
+const XSUSHI_TOKEN = XSUSHI[usedChainId]
 
 export const SushiBarSectionMobile: FC = () => {
   const { address } = useAccount()
@@ -65,7 +67,7 @@ export const SushiBarSectionMobile: FC = () => {
   )
 
   const { config } = usePrepareContractWrite({
-    ...getSushiBarContractConfig(ChainId.ETHEREUM),
+    ...getSushiBarContractConfig(usedChainId),
     functionName: selectedIndex === 0 ? 'enter' : 'leave',
     args: amount ? [BigNumber.from(amount.quotient.toString())] : undefined,
     enabled: !!amount?.quotient,
@@ -78,7 +80,7 @@ export const SushiBarSectionMobile: FC = () => {
 
   const { data: balances } = useBalances({
     currencies: [SUSHI_TOKEN, XSUSHI_TOKEN],
-    chainId: ChainId.ETHEREUM,
+    chainId: usedChainId,
     account: address,
   })
 
@@ -95,10 +97,10 @@ export const SushiBarSectionMobile: FC = () => {
           </div>
           <div className="flex flex-col">
             <Typography variant="lg" weight={600} className="text-slate-100">
-              Sushi Bar
+              Stealth
             </Typography>
             <Typography variant="sm" weight={400} className="-mt-1 text-slate-400">
-              Stake to earn trading fee from all pools on Sushi!
+              Stake to earn trading fee from all pools on The Deck!
             </Typography>
           </div>
         </div>
@@ -126,7 +128,7 @@ export const SushiBarSectionMobile: FC = () => {
                         className="flex items-center gap-1 text-transparent bg-gradient-to-r from-red to-yellow bg-clip-text"
                       >
                         {formatPercent(stats?.apr12m)}
-                        <Link.External href={chains[ChainId.ETHEREUM].getTokenUrl(XSUSHI_TOKEN.address)}>
+                        <Link.External href={chains[usedChainId].getTokenUrl(XSUSHI_TOKEN.address)}>
                           <ExternalLinkIcon width={12} height={12} className="text-slate-200 hover:text-blue" />
                         </Link.External>
                       </Typography>
@@ -162,24 +164,19 @@ export const SushiBarSectionMobile: FC = () => {
                             size="md"
                             className="whitespace-nowrap min-h-[48px]"
                             amount={amount}
-                            address={getSushiBarContractConfig(ChainId.ETHEREUM).address}
+                            address={getSushiBarContractConfig(usedChainId).address}
                           />
                         </Approve.Components>
                       }
                       render={({ approved }) => {
                         return (
                           <Checker.Connected size="md" fullWidth className="whitespace-nowrap">
-                            <Checker.Network
-                              size="md"
-                              fullWidth
-                              className="whitespace-nowrap"
-                              chainId={ChainId.ETHEREUM}
-                            >
+                            <Checker.Network size="md" fullWidth className="whitespace-nowrap" chainId={usedChainId}>
                               <Checker.Amounts
                                 size="md"
                                 fullWidth
                                 className="whitespace-nowrap"
-                                chainId={ChainId.ETHEREUM}
+                                chainId={usedChainId}
                                 fundSource={FundSource.WALLET}
                                 amounts={[amount]}
                               >

@@ -24,27 +24,27 @@ const nextConfig = {
       {
         source: '/discord{/}?',
         permanent: true,
-        destination: 'https://discord.gg/SDPH8SNVZW',
+        destination: 'https://discord.com/invite/qGwMQQeRPm',
       },
       {
         source: '/github{/}?',
         permanent: true,
-        destination: 'https://github.com/sushiswap',
+        destination: 'https://github.com/Stealth-R-D-LLC',
       },
       {
         source: '/twitter{/}?',
         permanent: true,
-        destination: 'https://twitter.com/sushiswap',
+        destination: 'https://twitter.com/stealthsend',
       },
       {
         source: '/instagram{/}?',
         permanent: true,
-        destination: 'https://instagram.com/instasushiswap',
+        destination: 'https://www.instagram.com/stealthsend_official',
       },
       {
         source: '/medium{/}?',
         permanent: true,
-        destination: 'https://medium.com/sushiswap-org',
+        destination: 'https://medium.com/stealthsend',
       },
     ]
   },

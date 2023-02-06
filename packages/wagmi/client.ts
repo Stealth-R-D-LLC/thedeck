@@ -54,7 +54,7 @@ export const client: Client = createClient({
           chains,
           options: {
             appName: 'Sushi 2.0',
-            appLogoUrl: 'https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/sushi.jpg',
+            appLogoUrl: 'https://raw.githubusercontent.com/sushiswap/list/master/logos/token-logos/token/sushi.jpg', // We should replace this with Stealth
           },
         }),
         new SafeConnector({ chains }),
